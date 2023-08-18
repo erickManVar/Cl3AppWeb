@@ -1,12 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Nosotros - Empresa CL3</title>
+  <meta charset="utf-8">
+  <title>Empresa CL3</title>
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<h1>Nosotros</h1>
-<div th:include="fragments/navbar :: navbar"></div>
-<p>CL3, es una empresa con muchos empleados altamente capacitados.</p>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Empresa CL3</a>
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" th:href="@{/}">Inicio</a></li>
+      <li class="nav-item"><a class="nav-link" th:href="@{/nosotros}">Nosotros</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <h1>CL3, es una empresa con muchos empleados altamente capacitados</h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-3">
+      <a th:href="@{/nuevo}" class="btn btn-primary btn-sm mb3">Agregar Nuevo Empleado</a>
+    </div>
+  </div>
+  <br>
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>DNI</th>
+      <th>Salario</th>
+      <th>Puesto</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="empleado : ${empleados}">
+      <td th:text="${empleado.id}">ID</td>
+      <td th:text="${empleado.nombre}">Nombre</td>
+      <td th:text="${empleado.apellido}">Apellido</td>
+      <td th:text="${empleado.dni}">DNI</td>
+      <td th:text="${empleado.salario}">Salario</td>
+      <td th:text="${empleado.puesto}">Puesto</td>
+      <td>
+        <a th:href="@{/editar/{id}(id=${empleado.id})}" class="btn btn-info">Editar</a>
+        <a th:href="@{/eliminar/{id}(id=${empleado.id})}" class="btn btn-danger">Eliminar</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
 </body>
 </html>
