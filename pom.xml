@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.2</version>
+		<version>2.7.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>pe.edu.manrique</groupId>
-	<artifactId>Cl3Manrique</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>estudiantes</artifactId>
+	<version>1.0.0</version>
 	<name>Cl3Manrique</name>
 	<description>Proyecto de Recursos Humanos</description>
 	<properties>
